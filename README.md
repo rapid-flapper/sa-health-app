@@ -139,12 +139,12 @@ Expand to include all 11 official South African languages:
   - [x] Add category metadata structure
   - [x] Test JSON loading in Python
 
-- [ ] **Milestone 3: Flask Backend**
-  - [ ] Create basic Flask app structure
-  - [ ] Implement route for home page
-  - [ ] Implement API endpoint for phrases by category
-  - [ ] Implement API endpoint for all categories
-  - [ ] Test backend with sample data
+- [x] **Milestone 3: Flask Backend** ✅
+  - [x] Create basic Flask app structure
+  - [x] Implement route for home page
+  - [x] Implement API endpoint for phrases by category
+  - [x] Implement API endpoint for all categories
+  - [x] Test backend with sample data
 
 - [ ] **Milestone 4: Frontend UI**
   - [ ] Create mobile-first responsive layout
