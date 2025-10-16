@@ -132,31 +132,47 @@ Expand to include all 11 official South African languages:
 
 ### Medical Workflows Feature (Phase 2)
 
-**Concept**: Guided conversation templates for common medical procedures
+**Concept**: Guided conversation templates for common medical procedures, organized by healthcare profession
 
-Instead of individual phrases, provide step-by-step conversation flows that represent complete medical interactions.
+Instead of individual phrases, provide step-by-step conversation flows that represent complete medical interactions. Workflows are categorized by medical profession for targeted, relevant content.
 
-**Example Workflows**:
-- **Vital Signs Check**: Temperature, blood pressure, pulse measurement sequence
-- **Taking Patient History**: Structured questions about symptoms, duration, severity
-- **Medication Instructions**: How to take medicine, dosage, timing, warnings
-- **Physical Examination**: "I need to examine...", "Please breathe deeply", "Does this hurt?"
-- **COVID/TB Screening**: Standard screening questions and symptom checklist
-- **Prenatal Checkup**: Standard prenatal questions and follow-up
+**Profession-Based Categories**:
+- **General** - All healthcare workers (Greetings, Vital Signs, Patient ID)
+- **General Practitioner** - Doctors (Patient History, Physical Exam, Diagnosis, Prescriptions)
+- **Nurse** - Nursing staff (Medication Admin, Wound Care, Post-op Care, IV Lines)
+- **Occupational Therapist** - OT professionals (Daily Living Assessment, Mobility, Home Safety, Adaptive Equipment)
+- **Physiotherapist** - PT professionals (Range of Motion, Exercise Instructions, Rehab Progress)
+- **Midwife/Maternal Health** - Prenatal care, Labor, Breastfeeding, Post-natal
+- **Community Health Worker** - TB Screening, HIV Counseling, Vaccination, Home Visits
+- **Emergency/Paramedic** - Trauma Assessment, Emergency Consent, Transport
+
+**Example Workflows by Profession**:
+- **General**: Vital Signs Check, Basic Greetings
+- **GP**: Taking Patient History, Physical Examination, Medication Instructions
+- **OT**: Daily Living Activities Assessment, Home Safety Evaluation
+- **Nurse**: Medication Administration, Wound Care Instructions
+- **Midwife**: Prenatal Checkup, Labor Assessment
+- **Community Health**: TB Screening, COVID Screening
 
 **How It Works**:
-1. Healthcare worker selects a procedure/workflow from menu
-2. App displays step-by-step conversation in both languages
-3. Each step shows: Your Language + Patient's Language + Audio
-4. Worker progresses through conversation naturally
-5. Optional branching based on common responses
+1. Healthcare worker selects their profession (e.g., "Occupational Therapist")
+2. App shows workflows relevant to that profession
+3. Worker selects a specific workflow/procedure
+4. App displays step-by-step conversation in both languages
+5. Each step shows: Your Language + Patient's Language + Audio
+6. Worker progresses through conversation naturally
+7. Optional branching based on common responses
+
+**Note**: Like phrases, workflows can belong to multiple profession categories (e.g., "Vital Signs Check" applies to General, GP, and Nurse)
 
 **Benefits**:
-- ✅ Structured guidance for thorough examinations
-- ✅ Ensures all important questions are asked
-- ✅ Training tool for new healthcare workers
-- ✅ Time-saving (no searching for individual phrases)
-- ✅ Consistent, professional medical conversations
+- ✅ **Role-specific content** - See only workflows relevant to your profession
+- ✅ **Structured guidance** for thorough examinations
+- ✅ **Complete coverage** - Ensures all important questions are asked
+- ✅ **Training tool** for new healthcare workers
+- ✅ **Time-saving** - No searching for individual phrases
+- ✅ **Professional standardization** - Consistent, professional medical conversations
+- ✅ **Multi-disciplinary support** - Serves diverse healthcare roles
 
 **Implementation**: After Phase 1 MVP is complete and phrase library is expanded
 
