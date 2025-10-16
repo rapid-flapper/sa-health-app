@@ -60,11 +60,13 @@
         },
         "zu": {
           "text": "Sawubona, unjani namhlanje?",
-          "phonetic": "sah-woo-BOH-nah, oon-JAH-nee nahm-HLAHN-jeh"
+          "phonetic": "sah-woo-BOH-nah, oon-JAH-nee nahm-HLAHN-jeh",
+          "tts_pronunciation": "sah-woo-boh-nah, oon-jah-nee nahm-lahn-jeh"
         },
         "xh": {
           "text": "Molo, unjani namhlanje?",
-          "phonetic": "MOH-loh, oon-JAH-nee nahm-HLAHN-jeh"
+          "phonetic": "MOH-loh, oon-JAH-nee nahm-HLAHN-jeh",
+          "tts_pronunciation": "moh-loh, oon-jah-nee nahm-lahn-jeh"
         },
         "af": {
           "text": "Hallo, hoe gaan dit vandag met jou?",
@@ -72,7 +74,8 @@
         },
         "nso": {
           "text": "Thobela, o bjang lehono?",
-          "phonetic": "toh-BEH-lah, oh BYANG leh-HOH-noh"
+          "phonetic": "toh-BEH-lah, oh BYANG leh-HOH-noh",
+          "tts_pronunciation": "toh-beh-lah, oh byang leh-hoh-noh"
         }
       }
     },
@@ -86,11 +89,13 @@
         },
         "zu": {
           "text": "Igama lami ngu... Ngingumsebenzi wezempilo.",
-          "phonetic": "ee-GAH-mah LAH-mee ngoo... ngee-ngoo-m-seh-BEHN-zee weh-zehm-PEE-loh"
+          "phonetic": "ee-GAH-mah LAH-mee ngoo... ngee-ngoo-m-seh-BEHN-zee weh-zehm-PEE-loh",
+          "tts_pronunciation": "ee-gah-mah lah-mee ngoo, ngee-ngoo-m-seh-behn-zee weh-zehm-pee-loh"
         },
         "xh": {
           "text": "Igama lam ngu... Ndingumsebenzi wezempilo.",
-          "phonetic": "ee-GAH-mah lahm ngoo... n-dee-ngoo-m-seh-BEHN-zee weh-zehm-PEE-loh"
+          "phonetic": "ee-GAH-mah lahm ngoo... n-dee-ngoo-m-seh-BEHN-zee weh-zehm-PEE-loh",
+          "tts_pronunciation": "ee-gah-mah lahm ngoo, n-dee-ngoo-m-seh-behn-zee weh-zehm-pee-loh"
         },
         "af": {
           "text": "My naam is... Ek is 'n gesondheidswerker.",
@@ -98,7 +103,8 @@
         },
         "nso": {
           "text": "Leina la ka ke... Ke mošomi wa tša maphelo.",
-          "phonetic": "LEH-nah lah kah keh... keh moh-SHOH-mee wah chah mah-PEH-loh"
+          "phonetic": "LEH-nah lah kah keh... keh moh-SHOH-mee wah chah mah-PEH-loh",
+          "tts_pronunciation": "leh-nah lah kah keh, keh moh-shoh-mee wah chah mah-peh-loh"
         }
       }
     },
@@ -112,11 +118,13 @@
         },
         "zu": {
           "text": "Ngicela ungitshele igama lakho.",
-          "phonetic": "ngee-CHEH-lah oon-gee-TSHEH-leh ee-GAH-mah LAH-koh"
+          "phonetic": "ngee-CHEH-lah oon-gee-TSHEH-leh ee-GAH-mah LAH-koh",
+          "tts_pronunciation": "ngee-cheh-lah oon-gee-tsheh-leh ee-gah-mah lah-koh"
         },
         "xh": {
           "text": "Nceda undixelele igama lakho.",
-          "phonetic": "n-CHEH-dah oon-dee-kseh-LEH-leh ee-GAH-mah LAH-koh"
+          "phonetic": "n-CHEH-dah oon-dee-kseh-LEH-leh ee-GAH-mah LAH-koh",
+          "tts_pronunciation": "n-cheh-dah oon-dee-kseh-leh-leh ee-gah-mah lah-koh"
         },
         "af": {
           "text": "Sê my asseblief jou naam.",
@@ -124,7 +132,8 @@
         },
         "nso": {
           "text": "Hle mpolele leina la gago.",
-          "phonetic": "hleh m-poh-LEH-leh LEH-nah lah GAH-goh"
+          "phonetic": "hleh m-poh-LEH-leh LEH-nah lah GAH-goh",
+          "tts_pronunciation": "hleh m-poh-leh-leh leh-nah lah gah-goh"
         }
       }
     },

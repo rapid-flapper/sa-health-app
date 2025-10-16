@@ -38,39 +38,52 @@ These are South African languages with relatively smaller TTS training data avai
 
 ## Future Improvements (Phase 2/3)
 
-### Option 1: Phonetic Text Workaround ❌ TESTED - NOT RECOMMENDED
+### Option 1: TTS-Optimized Respelling ⚠️ TESTED - LIMITED VALUE
 
-**Concept**: Instead of feeding native text to English TTS, feed the phonetic guide text.
+**Concept**: Use special respelling format designed for TTS engines.
 
-**Theory:**
+**Implementation:**
 ```python
 # Original approach
 text = "Sawubona, unjani namhlanje?"  # Zulu text
-tts = gTTS(text=text, lang='en')       # English TTS reads this (sounds bad)
+tts = gTTS(text=text, lang='en')       # English TTS (sounds bad)
 
-# Attempted improvement
-phonetic = "sah-woo-BOH-nah, oon-JAH-nee nahm-HLAHN-jeh"  # Phonetic guide
-tts = gTTS(text=phonetic, lang='en')   # English TTS reads phonetics
+# TTS-optimized respelling (current)
+text = "sah-woo-boh-nah, oon-jah-nee nahm-lahn-jeh"  # All lowercase
+tts = gTTS(text=text, lang='en')       # English TTS reads respelling
 ```
 
-**Test Results: ❌ FAILED**
+**Test Results: ⚠️ MARGINAL IMPROVEMENT**
 
-**Why it doesn't work:**
-1. **Capital letters read individually**: "BOH" becomes "B-O-H" (sounds like spelling out an acronym)
-2. **Hyphens cause pauses**: Creates unnatural choppy rhythm
-3. **Overall worse than original**: Native text actually sounds better than phonetic
-4. **Not intelligible**: Healthcare workers found it confusing and unhelpful
+**Testing Timeline:**
+- **Test 1** (Oct 16, 2025 @ 5:11pm): With capital emphasis letters → ❌ **FAILED**
+  - Capital letters spelled individually: "BOH" → "B-O-H"
+  - Unusable
+  
+- **Test 2** (Oct 16, 2025 @ 5:28pm): All lowercase → ⚠️ **MARGINAL**
+  - No letter spelling (capitals removed)
+  - Still not great quality
+  - Slightly better than native text, but not significantly
 
-**Testing Date**: October 16, 2025  
-**Decision**: Reverted to original approach (native text with English TTS)
+**Key Findings:**
+1. ❌ **ANY capital letters** = Letter-by-letter spelling (even one!)
+2. ⚠️ **All lowercase respelling** = Marginal improvement only
+3. ⚠️ **Hyphens okay** but don't help much
+4. ❌ **Not worth the effort** for small improvement
+5. ✅ **Placeholder until human recordings** available
+
+**Current Status: IMPLEMENTED BUT LIMITED**
+- Currently in use for Zulu, Xhosa, Sepedi (first 3 phrases)
+- All lowercase respellings in `tts_pronunciation` field
+- Backend uses it when available
+- Better than nothing, but not ideal
+- **Real solution: Human recordings**
 
 **Lesson Learned**: 
-- TTS engines interpret formatting (capitals, hyphens) literally
-- Phonetic guides are designed for human reading, not TTS consumption
-- Simple workarounds don't work for complex pronunciation
-- Need proper TTS engine support or human recordings
-
-**Status**: ❌ Not implemented - Do not pursue this approach
+- Google TTS treats ALL capitals as acronyms/initialisms
+- Respelling helps slightly but not enough for professional use
+- Phonetic guides are for human reading, not TTS
+- Professional TTS quality requires native language support or human audio
 
 ### Option 2: Alternative TTS Engines
 Consider using:
