@@ -132,12 +132,12 @@ Expand to include all 11 official South African languages:
   - [x] Create requirements.txt
   - [x] Verify virtual environment setup
 
-- [ ] **Milestone 2: Data Structure**
-  - [ ] Design and create JSON schema for phrases
-  - [ ] Create initial phrases.json with sample data
-  - [ ] Include all 5 languages in sample phrases
-  - [ ] Add category metadata structure
-  - [ ] Test JSON loading in Python
+- [x] **Milestone 2: Data Structure** ✅
+  - [x] Design and create JSON schema for phrases
+  - [x] Create initial phrases.json with sample data
+  - [x] Include all 5 languages in sample phrases
+  - [x] Add category metadata structure
+  - [x] Test JSON loading in Python
 
 - [ ] **Milestone 3: Flask Backend**
   - [ ] Create basic Flask app structure

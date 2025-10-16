@@ -1,0 +1,314 @@
+{
+  "categories": [
+    {
+      "id": "greeting",
+      "name": "Greetings",
+      "icon": "👋",
+      "description": "Basic greetings and introductions"
+    },
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "icon": "🤝",
+      "description": "Introducing yourself and getting patient information"
+    },
+    {
+      "id": "symptoms",
+      "name": "Symptoms",
+      "icon": "🩺",
+      "description": "Questions about patient symptoms"
+    },
+    {
+      "id": "pain_assessment",
+      "name": "Pain Assessment",
+      "icon": "😣",
+      "description": "Assessing pain location and severity"
+    },
+    {
+      "id": "instructions",
+      "name": "Instructions",
+      "icon": "📋",
+      "description": "Giving instructions to patients"
+    },
+    {
+      "id": "emergency",
+      "name": "Emergency",
+      "icon": "🚨",
+      "description": "Emergency situations and urgent care"
+    },
+    {
+      "id": "examination",
+      "name": "Examination",
+      "icon": "🔬",
+      "description": "Physical examination phrases"
+    },
+    {
+      "id": "reassurance",
+      "name": "Reassurance",
+      "icon": "💙",
+      "description": "Comforting and reassuring patients"
+    }
+  ],
+  "phrases": [
+    {
+      "id": "phrase_001",
+      "categories": ["greeting", "introduction"],
+      "translations": {
+        "en": {
+          "text": "Hello, how are you today?",
+          "phonetic": "heh-LOH, how ar yoo tuh-DAY"
+        },
+        "zu": {
+          "text": "Sawubona, unjani namhlanje?",
+          "phonetic": "sah-woo-BOH-nah, oon-JAH-nee nahm-HLAHN-jeh"
+        },
+        "xh": {
+          "text": "Molo, unjani namhlanje?",
+          "phonetic": "MOH-loh, oon-JAH-nee nahm-HLAHN-jeh"
+        },
+        "af": {
+          "text": "Hallo, hoe gaan dit vandag met jou?",
+          "phonetic": "HAH-loh, hoo khahn dit fun-DAKH met yoh"
+        },
+        "nso": {
+          "text": "Thobela, o bjang lehono?",
+          "phonetic": "toh-BEH-lah, oh BYANG leh-HOH-noh"
+        }
+      }
+    },
+    {
+      "id": "phrase_002",
+      "categories": ["introduction"],
+      "translations": {
+        "en": {
+          "text": "My name is... I am a healthcare worker.",
+          "phonetic": "my naym iz... I am uh HELTH-kair WUR-ker"
+        },
+        "zu": {
+          "text": "Igama lami ngu... Ngingumsebenzi wezempilo.",
+          "phonetic": "ee-GAH-mah LAH-mee ngoo... ngee-ngoo-m-seh-BEHN-zee weh-zehm-PEE-loh"
+        },
+        "xh": {
+          "text": "Igama lam ngu... Ndingumsebenzi wezempilo.",
+          "phonetic": "ee-GAH-mah lahm ngoo... n-dee-ngoo-m-seh-BEHN-zee weh-zehm-PEE-loh"
+        },
+        "af": {
+          "text": "My naam is... Ek is 'n gesondheidswerker.",
+          "phonetic": "may nahm is... ek is un kheh-SOND-hayts-vair-ker"
+        },
+        "nso": {
+          "text": "Leina la ka ke... Ke mošomi wa tša maphelo.",
+          "phonetic": "LEH-nah lah kah keh... keh moh-SHOH-mee wah chah mah-PEH-loh"
+        }
+      }
+    },
+    {
+      "id": "phrase_003",
+      "categories": ["introduction"],
+      "translations": {
+        "en": {
+          "text": "Please tell me your name.",
+          "phonetic": "pleez tel mee yor naym"
+        },
+        "zu": {
+          "text": "Ngicela ungitshele igama lakho.",
+          "phonetic": "ngee-CHEH-lah oon-gee-TSHEH-leh ee-GAH-mah LAH-koh"
+        },
+        "xh": {
+          "text": "Nceda undixelele igama lakho.",
+          "phonetic": "n-CHEH-dah oon-dee-kseh-LEH-leh ee-GAH-mah LAH-koh"
+        },
+        "af": {
+          "text": "Sê my asseblief jou naam.",
+          "phonetic": "say may AH-seh-bleef yoh nahm"
+        },
+        "nso": {
+          "text": "Hle mpolele leina la gago.",
+          "phonetic": "hleh m-poh-LEH-leh LEH-nah lah GAH-goh"
+        }
+      }
+    },
+    {
+      "id": "phrase_004",
+      "categories": ["symptoms", "pain_assessment"],
+      "translations": {
+        "en": {
+          "text": "Where does it hurt?",
+          "phonetic": "wair duz it hurt"
+        },
+        "zu": {
+          "text": "Kubuhlungu kuphi?",
+          "phonetic": "koo-boo-HLOO-ngoo KOO-pee"
+        },
+        "xh": {
+          "text": "Kubuhlungu phi?",
+          "phonetic": "koo-boo-HLOO-ngoo pee"
+        },
+        "af": {
+          "text": "Waar is die pyn?",
+          "phonetic": "vahr is dee payn"
+        },
+        "nso": {
+          "text": "Go hlaba kae?",
+          "phonetic": "khoh HLAH-bah kah-eh"
+        }
+      }
+    },
+    {
+      "id": "phrase_005",
+      "categories": ["symptoms"],
+      "translations": {
+        "en": {
+          "text": "When did this start?",
+          "phonetic": "wen did this start"
+        },
+        "zu": {
+          "text": "Kuqale nini lokhu?",
+          "phonetic": "koo-KAH-leh NEE-nee LOH-koo"
+        },
+        "xh": {
+          "text": "Kuqale nini oku?",
+          "phonetic": "koo-KAH-leh NEE-nee OH-koo"
+        },
+        "af": {
+          "text": "Wanneer het dit begin?",
+          "phonetic": "vah-NEER het dit beh-KHIN"
+        },
+        "nso": {
+          "text": "Se se thomile neng?",
+          "phonetic": "seh seh toh-MEE-leh nehng"
+        }
+      }
+    },
+    {
+      "id": "phrase_006",
+      "categories": ["instructions"],
+      "translations": {
+        "en": {
+          "text": "Please sit down here.",
+          "phonetic": "pleez sit down heer"
+        },
+        "zu": {
+          "text": "Ngicela uhlale phansi lapha.",
+          "phonetic": "ngee-CHEH-lah oo-HLAH-leh PAHN-see LAH-pah"
+        },
+        "xh": {
+          "text": "Nceda uhlale phantsi apha.",
+          "phonetic": "n-CHEH-dah oo-HLAH-leh PAHN-tsee AH-pah"
+        },
+        "af": {
+          "text": "Sit asseblief hier.",
+          "phonetic": "sit AH-seh-bleef heer"
+        },
+        "nso": {
+          "text": "Hle o dule mo.",
+          "phonetic": "hleh oh DOO-leh moh"
+        }
+      }
+    },
+    {
+      "id": "phrase_007",
+      "categories": ["examination", "instructions"],
+      "translations": {
+        "en": {
+          "text": "I need to examine you.",
+          "phonetic": "I need too ig-ZAM-in yoo"
+        },
+        "zu": {
+          "text": "Kudingeka ngikuhlole.",
+          "phonetic": "koo-dee-NGEH-kah ngee-koo-HLOH-leh"
+        },
+        "xh": {
+          "text": "Kufuneka ndikuhlole.",
+          "phonetic": "koo-foo-NEH-kah n-dee-koo-HLOH-leh"
+        },
+        "af": {
+          "text": "Ek moet jou ondersoek.",
+          "phonetic": "ek moot yoh ON-der-sook"
+        },
+        "nso": {
+          "text": "Ke swanetše go go hlahloba.",
+          "phonetic": "keh swah-NEH-tsheh khoh khoh hlah-HLOH-bah"
+        }
+      }
+    },
+    {
+      "id": "phrase_008",
+      "categories": ["examination", "instructions"],
+      "translations": {
+        "en": {
+          "text": "Please open your mouth.",
+          "phonetic": "pleez OH-pen yor mouth"
+        },
+        "zu": {
+          "text": "Ngicela uvule umlomo wakho.",
+          "phonetic": "ngee-CHEH-lah oo-VOO-leh oom-LOH-moh WAH-koh"
+        },
+        "xh": {
+          "text": "Nceda uvule umlomo wakho.",
+          "phonetic": "n-CHEH-dah oo-VOO-leh oom-LOH-moh WAH-koh"
+        },
+        "af": {
+          "text": "Maak asseblief jou mond oop.",
+          "phonetic": "mahk AH-seh-bleef yoh mond ohp"
+        },
+        "nso": {
+          "text": "Hle o bule molomo wa gago.",
+          "phonetic": "hleh oh BOO-leh moh-LOH-moh wah GAH-goh"
+        }
+      }
+    },
+    {
+      "id": "phrase_009",
+      "categories": ["reassurance"],
+      "translations": {
+        "en": {
+          "text": "Don't worry, we will help you.",
+          "phonetic": "dohnt WUR-ee, wee will help yoo"
+        },
+        "zu": {
+          "text": "Ungakhathazeki, sizokusiza.",
+          "phonetic": "oo-NGAH-kah-tah-ZEH-kee, see-zoh-koo-SEE-zah"
+        },
+        "xh": {
+          "text": "Musa ukukhathazeka, siza kukunceda.",
+          "phonetic": "MOO-sah oo-koo-kah-tah-ZEH-kah, SEE-zah koo-koon-CHEH-dah"
+        },
+        "af": {
+          "text": "Moenie bekommerd wees nie, ons sal jou help.",
+          "phonetic": "MOO-nee beh-KOM-merd vays nee, ons sahl yoh help"
+        },
+        "nso": {
+          "text": "O se tshwenye, re tla go thuša.",
+          "phonetic": "oh seh TSHWEN-yeh, reh tlah khoh TOO-shah"
+        }
+      }
+    },
+    {
+      "id": "phrase_010",
+      "categories": ["emergency"],
+      "translations": {
+        "en": {
+          "text": "This is an emergency. We need to act quickly.",
+          "phonetic": "this iz an ee-MUR-jen-see. wee need too akt KWIK-lee"
+        },
+        "zu": {
+          "text": "Lokhu kuyisimo esiphuthumayo. Kudingeka sisebenze ngokushesha.",
+          "phonetic": "LOH-koo koo-yee-SEE-moh eh-see-poo-too-MAH-yoh. koo-dee-NGEH-kah see-seh-BEHN-zeh ngoh-koo-SHEH-shah"
+        },
+        "xh": {
+          "text": "Le yimeko ephuthumayo. Kufuneka sisebenze ngokukhawuleza.",
+          "phonetic": "leh yee-MEH-koh eh-poo-too-MAH-yoh. koo-foo-NEH-kah see-seh-BEHN-zeh ngoh-koo-kah-woo-LEH-zah"
+        },
+        "af": {
+          "text": "Dit is 'n noodgeval. Ons moet vinnig optree.",
+          "phonetic": "dit is un NOHT-kheh-fahl. ons moot FIN-nikh OP-tray"
+        },
+        "nso": {
+          "text": "Se ke tiragalo ya kapetepete. Re swanetše go šoma ka pela.",
+          "phonetic": "seh keh tee-rah-GAH-loh yah kah-peh-teh-PEH-teh. reh swah-NEH-tsheh khoh SHOH-mah kah PEH-lah"
+        }
+      }
+    }
+  ]
+}
