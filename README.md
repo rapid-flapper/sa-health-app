@@ -118,6 +118,70 @@ Expand to include all 11 official South African languages:
 - Consider local open-source models for offline/privacy
 - Build substantial phrase database first before LLM integration
 
+## Development Progress
+
+**Current Phase**: Phase 1 - MVP Development  
+**Current Branch**: `dev`  
+**Last Updated**: October 16, 2025
+
+### Phase 1 Milestones
+
+- [ ] **Milestone 1: Project Foundation**
+  - [ ] Install Flask and required dependencies
+  - [ ] Create project folder structure
+  - [ ] Create requirements.txt
+  - [ ] Verify virtual environment setup
+
+- [ ] **Milestone 2: Data Structure**
+  - [ ] Design and create JSON schema for phrases
+  - [ ] Create initial phrases.json with sample data
+  - [ ] Include all 5 languages in sample phrases
+  - [ ] Add category metadata structure
+  - [ ] Test JSON loading in Python
+
+- [ ] **Milestone 3: Flask Backend**
+  - [ ] Create basic Flask app structure
+  - [ ] Implement route for home page
+  - [ ] Implement API endpoint for phrases by category
+  - [ ] Implement API endpoint for all categories
+  - [ ] Test backend with sample data
+
+- [ ] **Milestone 4: Frontend UI**
+  - [ ] Create mobile-first responsive layout
+  - [ ] Implement category filter/selector
+  - [ ] Display phrases with translations
+  - [ ] Add phonetic pronunciation display
+  - [ ] Style with modern, clean design
+  - [ ] Test on mobile viewport
+
+- [ ] **Milestone 5: Audio Playback**
+  - [ ] Install and configure gTTS library
+  - [ ] Implement audio generation endpoint
+  - [ ] Add play button to each phrase
+  - [ ] Test audio playback across languages
+  - [ ] Handle audio loading states
+
+- [ ] **Milestone 6: Phase 1 Completion**
+  - [ ] Full integration testing
+  - [ ] Test on actual mobile device
+  - [ ] Add more phrases across categories
+  - [ ] Update documentation
+  - [ ] Deploy for testing (optional)
+
+### Completed Milestones
+
+- [x] **Milestone 0: Project Setup** *(Merged to main)*
+  - [x] Repository cloned
+  - [x] Virtual environment created (health-venv)
+  - [x] Git workflow established (main + dev branches)
+  - [x] Comprehensive README created
+  - [x] .gitignore configured
+  - [x] Project memories established
+
+---
+
+**Note**: Milestones may be adjusted as development progresses. Each milestone completion on `dev` will be considered for merge to `main` branch.
+
 ## Project Structure
 
 ```
