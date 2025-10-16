@@ -147,11 +147,13 @@
         },
         "zu": {
           "text": "Kubuhlungu kuphi?",
-          "phonetic": "koo-boo-HLOO-ngoo KOO-pee"
+          "phonetic": "koo-boo-HLOO-ngoo KOO-pee",
+          "tts_pronunciation": "koo-boo-hloo-ngoo koo-pee"
         },
         "xh": {
           "text": "Kubuhlungu phi?",
-          "phonetic": "koo-boo-HLOO-ngoo pee"
+          "phonetic": "koo-boo-HLOO-ngoo pee",
+          "tts_pronunciation": "koo-boo-hloo-ngoo pee"
         },
         "af": {
           "text": "Waar is die pyn?",
@@ -159,7 +161,8 @@
         },
         "nso": {
           "text": "Go hlaba kae?",
-          "phonetic": "khoh HLAH-bah kah-eh"
+          "phonetic": "khoh HLAH-bah kah-eh",
+          "tts_pronunciation": "khoh hlah-bah kah-eh"
         }
       }
     },
@@ -173,11 +176,13 @@
         },
         "zu": {
           "text": "Kuqale nini lokhu?",
-          "phonetic": "koo-KAH-leh NEE-nee LOH-koo"
+          "phonetic": "koo-KAH-leh NEE-nee LOH-koo",
+          "tts_pronunciation": "koo-kah-leh nee-nee loh-koo"
         },
         "xh": {
           "text": "Kuqale nini oku?",
-          "phonetic": "koo-KAH-leh NEE-nee OH-koo"
+          "phonetic": "koo-KAH-leh NEE-nee OH-koo",
+          "tts_pronunciation": "koo-kah-leh nee-nee oh-koo"
         },
         "af": {
           "text": "Wanneer het dit begin?",
@@ -185,7 +190,8 @@
         },
         "nso": {
           "text": "Se se thomile neng?",
-          "phonetic": "seh seh toh-MEE-leh nehng"
+          "phonetic": "seh seh toh-MEE-leh nehng",
+          "tts_pronunciation": "seh seh toh-mee-leh nehng"
         }
       }
     },
@@ -199,11 +205,13 @@
         },
         "zu": {
           "text": "Ngicela uhlale phansi lapha.",
-          "phonetic": "ngee-CHEH-lah oo-HLAH-leh PAHN-see LAH-pah"
+          "phonetic": "ngee-CHEH-lah oo-HLAH-leh PAHN-see LAH-pah",
+          "tts_pronunciation": "ngee-cheh-lah oo-hlah-leh pahn-see lah-pah"
         },
         "xh": {
           "text": "Nceda uhlale phantsi apha.",
-          "phonetic": "n-CHEH-dah oo-HLAH-leh PAHN-tsee AH-pah"
+          "phonetic": "n-CHEH-dah oo-HLAH-leh PAHN-tsee AH-pah",
+          "tts_pronunciation": "n-cheh-dah oo-hlah-leh pahn-tsee ah-pah"
         },
         "af": {
           "text": "Sit asseblief hier.",
@@ -211,7 +219,8 @@
         },
         "nso": {
           "text": "Hle o dule mo.",
-          "phonetic": "hleh oh DOO-leh moh"
+          "phonetic": "hleh oh DOO-leh moh",
+          "tts_pronunciation": "hleh oh doo-leh moh"
         }
       }
     },
@@ -225,11 +234,13 @@
         },
         "zu": {
           "text": "Kudingeka ngikuhlole.",
-          "phonetic": "koo-dee-NGEH-kah ngee-koo-HLOH-leh"
+          "phonetic": "koo-dee-NGEH-kah ngee-koo-HLOH-leh",
+          "tts_pronunciation": "koo-dee-ngeh-kah ngee-koo-hloh-leh"
         },
         "xh": {
           "text": "Kufuneka ndikuhlole.",
-          "phonetic": "koo-foo-NEH-kah n-dee-koo-HLOH-leh"
+          "phonetic": "koo-foo-NEH-kah n-dee-koo-HLOH-leh",
+          "tts_pronunciation": "koo-foo-neh-kah n-dee-koo-hloh-leh"
         },
         "af": {
           "text": "Ek moet jou ondersoek.",
@@ -237,7 +248,8 @@
         },
         "nso": {
           "text": "Ke swanetše go go hlahloba.",
-          "phonetic": "keh swah-NEH-tsheh khoh khoh hlah-HLOH-bah"
+          "phonetic": "keh swah-NEH-tsheh khoh khoh hlah-HLOH-bah",
+          "tts_pronunciation": "keh swah-neh-tsheh khoh khoh hlah-hloh-bah"
         }
       }
     },
@@ -251,11 +263,13 @@
         },
         "zu": {
           "text": "Ngicela uvule umlomo wakho.",
-          "phonetic": "ngee-CHEH-lah oo-VOO-leh oom-LOH-moh WAH-koh"
+          "phonetic": "ngee-CHEH-lah oo-VOO-leh oom-LOH-moh WAH-koh",
+          "tts_pronunciation": "ngee-cheh-lah oo-voo-leh oom-loh-moh wah-koh"
         },
         "xh": {
           "text": "Nceda uvule umlomo wakho.",
-          "phonetic": "n-CHEH-dah oo-VOO-leh oom-LOH-moh WAH-koh"
+          "phonetic": "n-CHEH-dah oo-VOO-leh oom-LOH-moh WAH-koh",
+          "tts_pronunciation": "n-cheh-dah oo-voo-leh oom-loh-moh wah-koh"
         },
         "af": {
           "text": "Maak asseblief jou mond oop.",
@@ -263,7 +277,8 @@
         },
         "nso": {
           "text": "Hle o bule molomo wa gago.",
-          "phonetic": "hleh oh BOO-leh moh-LOH-moh wah GAH-goh"
+          "phonetic": "hleh oh BOO-leh moh-LOH-moh wah GAH-goh",
+          "tts_pronunciation": "hleh oh boo-leh moh-loh-moh wah gah-goh"
         }
       }
     },
@@ -277,11 +292,13 @@
         },
         "zu": {
           "text": "Ungakhathazeki, sizokusiza.",
-          "phonetic": "oo-NGAH-kah-tah-ZEH-kee, see-zoh-koo-SEE-zah"
+          "phonetic": "oo-NGAH-kah-tah-ZEH-kee, see-zoh-koo-SEE-zah",
+          "tts_pronunciation": "oo-ngah-kah-tah-zeh-kee, see-zoh-koo-see-zah"
         },
         "xh": {
           "text": "Musa ukukhathazeka, siza kukunceda.",
-          "phonetic": "MOO-sah oo-koo-kah-tah-ZEH-kah, SEE-zah koo-koon-CHEH-dah"
+          "phonetic": "MOO-sah oo-koo-kah-tah-ZEH-kah, SEE-zah koo-koon-CHEH-dah",
+          "tts_pronunciation": "moo-sah oo-koo-kah-tah-zeh-kah, see-zah koo-koon-cheh-dah"
         },
         "af": {
           "text": "Moenie bekommerd wees nie, ons sal jou help.",
@@ -289,7 +306,8 @@
         },
         "nso": {
           "text": "O se tshwenye, re tla go thuša.",
-          "phonetic": "oh seh TSHWEN-yeh, reh tlah khoh TOO-shah"
+          "phonetic": "oh seh TSHWEN-yeh, reh tlah khoh TOO-shah",
+          "tts_pronunciation": "oh seh tshwen-yeh, reh tlah khoh too-shah"
         }
       }
     },
@@ -303,11 +321,13 @@
         },
         "zu": {
           "text": "Lokhu kuyisimo esiphuthumayo. Kudingeka sisebenze ngokushesha.",
-          "phonetic": "LOH-koo koo-yee-SEE-moh eh-see-poo-too-MAH-yoh. koo-dee-NGEH-kah see-seh-BEHN-zeh ngoh-koo-SHEH-shah"
+          "phonetic": "LOH-koo koo-yee-SEE-moh eh-see-poo-too-MAH-yoh. koo-dee-NGEH-kah see-seh-BEHN-zeh ngoh-koo-SHEH-shah",
+          "tts_pronunciation": "loh-koo koo-yee-see-moh eh-see-poo-too-mah-yoh. koo-dee-ngeh-kah see-seh-behn-zeh ngoh-koo-sheh-shah"
         },
         "xh": {
           "text": "Le yimeko ephuthumayo. Kufuneka sisebenze ngokukhawuleza.",
-          "phonetic": "leh yee-MEH-koh eh-poo-too-MAH-yoh. koo-foo-NEH-kah see-seh-BEHN-zeh ngoh-koo-kah-woo-LEH-zah"
+          "phonetic": "leh yee-MEH-koh eh-poo-too-MAH-yoh. koo-foo-NEH-kah see-seh-BEHN-zeh ngoh-koo-kah-woo-LEH-zah",
+          "tts_pronunciation": "leh yee-meh-koh eh-poo-too-mah-yoh. koo-foo-neh-kah see-seh-behn-zeh ngoh-koo-kah-woo-leh-zah"
         },
         "af": {
           "text": "Dit is 'n noodgeval. Ons moet vinnig optree.",
@@ -315,7 +335,8 @@
         },
         "nso": {
           "text": "Se ke tiragalo ya kapetepete. Re swanetše go šoma ka pela.",
-          "phonetic": "seh keh tee-rah-GAH-loh yah kah-peh-teh-PEH-teh. reh swah-NEH-tsheh khoh SHOH-mah kah PEH-lah"
+          "phonetic": "seh keh tee-rah-GAH-loh yah kah-peh-teh-PEH-teh. reh swah-NEH-tsheh khoh SHOH-mah kah PEH-lah",
+          "tts_pronunciation": "seh keh tee-rah-gah-loh yah kah-peh-teh-peh-teh. reh swah-neh-tsheh khoh shoh-mah kah peh-lah"
         }
       }
     }
