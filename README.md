@@ -38,6 +38,12 @@ South Africa's linguistic diversity presents communication challenges for health
    - Audio plays in patient's language
    - Allows healthcare workers to hear native pronunciation
    - Play button for instant audio playback
+   - **Audio Quality Indicators**: Visual badges show TTS quality
+     - 🟢 Native TTS (English, Afrikaans)
+     - 🟡 Approximation (Zulu, Xhosa, Sepedi)
+     - 🎙️ Human Recording (when available)
+   - See `AUDIO_NOTES.md` for technical details
+   - See `HUMAN_AUDIO_GUIDE.md` for adding human recordings
 
 5. **Mobile-Optimized Interface**
    - Designed for use on mobile devices
