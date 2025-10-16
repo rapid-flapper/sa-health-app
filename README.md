@@ -212,12 +212,13 @@ Instead of individual phrases, provide step-by-step conversation flows that repr
   - [x] Style with modern, clean design
   - [x] Test on mobile viewport
 
-- [ ] **Milestone 5: Audio Playback**
-  - [ ] Install and configure gTTS library
-  - [ ] Implement audio generation endpoint
-  - [ ] Add play button to each phrase
-  - [ ] Test audio playback across languages
-  - [ ] Handle audio loading states
+- [x] **Milestone 5: Audio Playback** ✅
+  - [x] Install and configure gTTS library
+  - [x] Implement audio generation endpoint
+  - [x] Add play button to each phrase
+  - [x] Test audio playback across languages
+  - [x] Handle audio loading states
+  - **Note**: English & Afrikaans have native TTS; Zulu, Xhosa, Sepedi use English TTS as fallback (see AUDIO_NOTES.md)
 
 - [ ] **Milestone 6: Phase 1 Completion**
   - [ ] Full integration testing

@@ -3,9 +3,11 @@ SA Health App - Multilingual Medical Communication Tool
 Flask Backend Application
 """
 
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, send_file
 import json
 import os
+from gtts import gTTS
+from io import BytesIO
 
 # Initialize Flask app with correct template and static folders
 app = Flask(__name__, 
@@ -108,6 +110,67 @@ def health_check():
         'app': 'SA Health App',
         'version': '1.0.0'
     })
+
+@app.route('/api/audio/<phrase_id>/<language>')
+def generate_audio(phrase_id, language):
+    """Generate audio for a specific phrase in a specific language"""
+    try:
+        # Load phrase data
+        data = load_phrases_data()
+        phrase = next((p for p in data['phrases'] if p['id'] == phrase_id), None)
+        
+        if not phrase:
+            return jsonify({
+                'success': False,
+                'error': 'Phrase not found'
+            }), 404
+        
+        # Get translation
+        if language not in phrase['translations']:
+            return jsonify({
+                'success': False,
+                'error': f'Language {language} not available for this phrase'
+            }), 404
+        
+        text = phrase['translations'][language]['text']
+        
+        # gTTS language mapping - some SA languages not yet supported by Google TTS
+        # Map to closest available or use special handling
+        gtts_language_map = {
+            'en': 'en',     # English - supported
+            'af': 'af',     # Afrikaans - supported
+            'zu': 'en',     # Zulu - not supported, use English as placeholder
+            'xh': 'en',     # Xhosa - not supported, use English as placeholder  
+            'nso': 'en'     # Sepedi - not supported, use English as placeholder
+        }
+        
+        gtts_lang = gtts_language_map.get(language, 'en')
+        
+        # Note: For unsupported languages, we use English TTS
+        # This will pronounce the non-English text with English phonetics
+        # Future: Consider alternative TTS engines that support these languages
+        
+        # Generate audio using gTTS
+        tts = gTTS(text=text, lang=gtts_lang, slow=False)
+        
+        # Save to in-memory buffer
+        audio_buffer = BytesIO()
+        tts.write_to_fp(audio_buffer)
+        audio_buffer.seek(0)
+        
+        # Return audio file
+        return send_file(
+            audio_buffer,
+            mimetype='audio/mp3',
+            as_attachment=False,
+            download_name=f'{phrase_id}_{language}.mp3'
+        )
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
 
 # Error handlers
 

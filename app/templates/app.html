@@ -583,18 +583,61 @@
                 `${filteredCount} phrases • ${categoryCount} categories • 5 languages`;
         }
         
-        // Play audio (placeholder for Milestone 5)
-        function playAudio(phraseId, language) {
+        // Play audio
+        async function playAudio(phraseId, language) {
             const button = event.target.closest('.play-button');
-            button.classList.add('playing');
-            button.innerHTML = '<span>⏸️</span><span>Playing...</span>';
+            const originalHTML = button.innerHTML;
             
-            // Placeholder - audio will be implemented in Milestone 5
-            setTimeout(() => {
+            try {
+                // Update button state to loading
+                button.classList.add('playing');
+                button.disabled = true;
+                button.innerHTML = '<span>⏳</span><span>Loading...</span>';
+                
+                // Fetch audio from API
+                const response = await fetch(`/api/audio/${phraseId}/${language}`);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to generate audio');
+                }
+                
+                // Create audio blob
+                const audioBlob = await response.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                
+                // Create and play audio
+                const audio = new Audio(audioUrl);
+                
+                // Update button while playing
+                button.innerHTML = '<span>🔊</span><span>Playing...</span>';
+                
+                // Play audio
+                await audio.play();
+                
+                // Reset button when finished
+                audio.onended = () => {
+                    button.classList.remove('playing');
+                    button.disabled = false;
+                    button.innerHTML = originalHTML;
+                    URL.revokeObjectURL(audioUrl);
+                };
+                
+                // Handle errors during playback
+                audio.onerror = () => {
+                    button.classList.remove('playing');
+                    button.disabled = false;
+                    button.innerHTML = originalHTML;
+                    URL.revokeObjectURL(audioUrl);
+                    alert('Error playing audio');
+                };
+                
+            } catch (error) {
+                console.error('Audio playback error:', error);
                 button.classList.remove('playing');
-                button.innerHTML = '<span>▶️</span><span>Play Audio</span>';
-                alert('Audio playback will be implemented in Milestone 5!');
-            }, 500);
+                button.disabled = false;
+                button.innerHTML = originalHTML;
+                alert('Failed to load audio. Please try again.');
+            }
         }
         
         // Start app
