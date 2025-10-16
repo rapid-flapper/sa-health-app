@@ -252,6 +252,32 @@
             margin-right: 0.25rem;
         }
         
+        .audio-quality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .audio-quality-badge.native {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .audio-quality-badge.fallback {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .audio-quality-badge.human {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
         .play-button {
             background: var(--primary);
             color: white;
@@ -421,6 +447,44 @@
             'nso': 'Sepedi'
         };
         
+        // Audio quality information
+        function getAudioQuality(language) {
+            // Native TTS support (high quality)
+            const nativeTTS = ['en', 'af'];
+            
+            // Fallback TTS (poor quality - uses English TTS)
+            const fallbackTTS = ['zu', 'xh', 'nso'];
+            
+            // Human recordings (future - best quality)
+            const humanRecordings = [];
+            
+            if (humanRecordings.includes(language)) {
+                return {
+                    type: 'human',
+                    label: '🎙️ Human Recording',
+                    description: 'Best Quality - Native Speaker'
+                };
+            } else if (nativeTTS.includes(language)) {
+                return {
+                    type: 'native',
+                    label: '🟢 Native TTS',
+                    description: 'Good Quality - Natural Pronunciation'
+                };
+            } else if (fallbackTTS.includes(language)) {
+                return {
+                    type: 'fallback',
+                    label: '🟡 Approximation',
+                    description: 'Limited Quality - Uses English TTS (Phonetic guide recommended)'
+                };
+            }
+            
+            return {
+                type: 'fallback',
+                label: '⚠️ Unknown',
+                description: 'Quality may vary'
+            };
+        }
+        
         // Initialize app
         async function init() {
             await loadCategories();
@@ -562,6 +626,11 @@
                             <div class="language-label">🤝 Patient's Language (${languageNames[targetLanguage]})</div>
                             <div class="phrase-text">${targetTranslation.text}</div>
                             <div class="phrase-phonetic">${targetTranslation.phonetic}</div>
+                        </div>
+                        
+                        <div class="audio-quality-badge ${getAudioQuality(targetLanguage).type}" 
+                             title="${getAudioQuality(targetLanguage).description}">
+                            ${getAudioQuality(targetLanguage).label}
                         </div>
                         
                         <button class="play-button" onclick="playAudio('${phrase.id}', '${targetLanguage}')">

@@ -183,6 +183,36 @@ def test_audio_button_states():
         print(f"[FAIL] Audio button states test error: {e}")
         return False
 
+def test_audio_quality_indicators():
+    """Test that audio quality badges are displayed"""
+    try:
+        from app import app
+        
+        with app.test_client() as client:
+            response = client.get('/app')
+            html = response.data.decode('utf-8')
+            
+            # Check for audio quality function
+            if 'getAudioQuality' not in html:
+                print("[FAIL] Audio quality function not found")
+                return False
+            
+            # Check for quality badge styling
+            if 'audio-quality-badge' not in html:
+                print("[FAIL] Audio quality badge CSS not found")
+                return False
+            
+            # Check for quality types
+            if 'Native TTS' not in html or 'Approximation' not in html:
+                print("[FAIL] Quality indicators not properly labeled")
+                return False
+            
+            print("[PASS] Audio quality indicators implemented")
+            return True
+    except Exception as e:
+        print(f"[FAIL] Audio quality indicators test error: {e}")
+        return False
+
 def test_multiple_phrases_audio():
     """Test audio generation for multiple different phrases"""
     try:
@@ -220,7 +250,8 @@ if __name__ == '__main__':
         ('Audio Quality Check', test_audio_generation_quality),
         ('Multiple Phrases Audio', test_multiple_phrases_audio),
         ('Frontend Audio Integration', test_frontend_audio_integration),
-        ('Audio Button States', test_audio_button_states)
+        ('Audio Button States', test_audio_button_states),
+        ('Audio Quality Indicators', test_audio_quality_indicators)
     ]
     
     results = []

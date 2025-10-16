@@ -70,10 +70,33 @@ For Phase 2:
 
 ## User Communication
 
-When users play audio for Zulu, Xhosa, or Sepedi, they should understand:
-1. The phonetic pronunciation guide is the primary learning tool
-2. Audio is a helpful supplement but not perfectly native for these languages
-3. Focus on reading the phonetic guide while listening
+### Audio Quality Indicators
+
+The app displays visual badges to inform users about audio quality:
+
+**🟢 Native TTS (Green Badge)**
+- Languages: English, Afrikaans
+- Quality: Good - Natural pronunciation
+- Description: "Good Quality - Natural Pronunciation"
+
+**🟡 Approximation (Yellow Badge)**
+- Languages: Zulu, Xhosa, Sepedi
+- Quality: Limited - Uses English TTS
+- Description: "Limited Quality - Uses English TTS (Phonetic guide recommended)"
+
+**🎙️ Human Recording (Blue Badge)** *(Future)*
+- Quality: Best - Native speaker audio
+- Description: "Best Quality - Native Speaker"
+- Status: Not yet implemented (placeholder for Phase 2)
+
+### User Guidance
+
+When users play audio for Zulu, Xhosa, or Sepedi:
+1. They will see a **yellow "🟡 Approximation" badge**
+2. Hovering shows: "Limited Quality - Uses English TTS (Phonetic guide recommended)"
+3. The phonetic pronunciation guide remains the primary learning tool
+4. Audio serves as a helpful supplement but not perfectly native for these languages
+5. Users should focus on reading the phonetic guide while listening
 
 ## Technical Details
 
