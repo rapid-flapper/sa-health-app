@@ -132,23 +132,28 @@ def generate_audio(phrase_id, language):
                 'error': f'Language {language} not available for this phrase'
             }), 404
         
-        text = phrase['translations'][language]['text']
-        
         # gTTS language mapping - some SA languages not yet supported by Google TTS
-        # Map to closest available or use special handling
         gtts_language_map = {
             'en': 'en',     # English - supported
             'af': 'af',     # Afrikaans - supported
-            'zu': 'en',     # Zulu - not supported, use English as placeholder
-            'xh': 'en',     # Xhosa - not supported, use English as placeholder  
-            'nso': 'en'     # Sepedi - not supported, use English as placeholder
+            'zu': 'en',     # Zulu - not supported, use English TTS
+            'xh': 'en',     # Xhosa - not supported, use English TTS
+            'nso': 'en'     # Sepedi - not supported, use English TTS
         }
         
         gtts_lang = gtts_language_map.get(language, 'en')
         
-        # Note: For unsupported languages, we use English TTS
-        # This will pronounce the non-English text with English phonetics
-        # Future: Consider alternative TTS engines that support these languages
+        # For languages without native TTS support, use phonetic guide text
+        # This allows English TTS to read phonetic approximations like "sah-woo-BOH-nah"
+        # instead of native text like "Sawubona" which sounds incorrect
+        unsupported_languages = ['zu', 'xh', 'nso']
+        
+        if language in unsupported_languages:
+            # Use phonetic guide for better pronunciation approximation
+            text = phrase['translations'][language]['phonetic']
+        else:
+            # Use native text for languages with proper TTS support
+            text = phrase['translations'][language]['text']
         
         # Generate audio using gTTS
         tts = gTTS(text=text, lang=gtts_lang, slow=False)
