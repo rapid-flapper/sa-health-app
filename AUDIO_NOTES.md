@@ -38,44 +38,39 @@ These are South African languages with relatively smaller TTS training data avai
 
 ## Future Improvements (Phase 2/3)
 
-### Option 1: Phonetic Text Workaround (Quick Win!)
+### Option 1: Phonetic Text Workaround ❌ TESTED - NOT RECOMMENDED
+
 **Concept**: Instead of feeding native text to English TTS, feed the phonetic guide text.
 
-**Current Approach:**
+**Theory:**
 ```python
+# Original approach
 text = "Sawubona, unjani namhlanje?"  # Zulu text
 tts = gTTS(text=text, lang='en')       # English TTS reads this (sounds bad)
-```
 
-**Improved Approach:**
-```python
+# Attempted improvement
 phonetic = "sah-woo-BOH-nah, oon-JAH-nee nahm-HLAHN-jeh"  # Phonetic guide
-tts = gTTS(text=phonetic, lang='en')   # English TTS reads phonetics (may sound better!)
+tts = gTTS(text=phonetic, lang='en')   # English TTS reads phonetics
 ```
 
-**Pros:**
-- ✅ No new dependencies or APIs
-- ✅ May sound closer to actual pronunciation
-- ✅ Quick to implement
-- ✅ Free (uses existing gTTS)
+**Test Results: ❌ FAILED**
 
-**Cons:**
-- ⚠️ Still synthetic, not native speaker
-- ⚠️ Depends on quality of phonetic transcription
-- ⚠️ May sound "choppy" due to hyphens
-- ⚠️ Needs testing to verify if actually better
+**Why it doesn't work:**
+1. **Capital letters read individually**: "BOH" becomes "B-O-H" (sounds like spelling out an acronym)
+2. **Hyphens cause pauses**: Creates unnatural choppy rhythm
+3. **Overall worse than original**: Native text actually sounds better than phonetic
+4. **Not intelligible**: Healthcare workers found it confusing and unhelpful
 
-**Implementation:**
-```python
-# In app.py audio generation endpoint
-if language in ['zu', 'xh', 'nso']:
-    # Use phonetic guide instead of native text for better pronunciation
-    text = phrase['translations'][language]['phonetic']
-else:
-    text = phrase['translations'][language]['text']
-```
+**Testing Date**: October 16, 2025  
+**Decision**: Reverted to original approach (native text with English TTS)
 
-**Recommendation**: Test this with users! May be a significant improvement.
+**Lesson Learned**: 
+- TTS engines interpret formatting (capitals, hyphens) literally
+- Phonetic guides are designed for human reading, not TTS consumption
+- Simple workarounds don't work for complex pronunciation
+- Need proper TTS engine support or human recordings
+
+**Status**: ❌ Not implemented - Do not pursue this approach
 
 ### Option 2: Alternative TTS Engines
 Consider using:
