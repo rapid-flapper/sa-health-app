@@ -61,21 +61,31 @@
             font-size: 0.9rem;
         }
         
-        /* Language Selector */
-        .language-selector {
+        /* Language Selectors */
+        .language-selectors {
             background: var(--bg-white);
             border-radius: 15px;
             padding: 1.25rem;
             margin-bottom: 1.5rem;
             box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .language-selector {
+            display: flex;
+            flex-direction: column;
         }
         
         .language-selector label {
-            display: block;
             color: var(--text-dark);
             font-weight: 600;
             margin-bottom: 0.75rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
         }
         
         .language-selector select {
@@ -83,7 +93,7 @@
             padding: 0.875rem;
             border: 2px solid var(--border);
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             background: var(--bg-light);
             color: var(--text-dark);
             cursor: pointer;
@@ -195,8 +205,32 @@
             gap: 0.25rem;
         }
         
+        .language-section {
+            margin-bottom: 1rem;
+            padding: 0.875rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .language-section.target {
+            border-left-color: var(--secondary);
+        }
+        
+        .language-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
         .phrase-text {
-            font-size: 1.125rem;
+            font-size: 1.075rem;
             color: var(--text-dark);
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -204,13 +238,13 @@
         }
         
         .phrase-phonetic {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             color: var(--text-light);
             font-style: italic;
-            padding: 0.625rem;
-            background: var(--bg-light);
-            border-radius: 8px;
-            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            background: white;
+            border-radius: 6px;
+            margin-top: 0.5rem;
         }
         
         .phrase-phonetic::before {
@@ -306,6 +340,10 @@
                 font-size: 1.5rem;
             }
             
+            .language-selectors {
+                grid-template-columns: 1fr;
+            }
+            
             .phrase-text {
                 font-size: 1rem;
             }
@@ -325,16 +363,28 @@
             Loading...
         </div>
         
-        <!-- Language Selector -->
-        <div class="language-selector">
-            <label for="language-select">Select Language:</label>
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="zu">Zulu (isiZulu)</option>
-                <option value="xh">Xhosa (isiXhosa)</option>
-                <option value="af">Afrikaans</option>
-                <option value="nso">Sepedi (Sesotho sa Leboa)</option>
-            </select>
+        <!-- Language Selectors -->
+        <div class="language-selectors">
+            <div class="language-selector">
+                <label for="source-language">👨‍⚕️ Your Language:</label>
+                <select id="source-language">
+                    <option value="en">English</option>
+                    <option value="zu">Zulu (isiZulu)</option>
+                    <option value="xh">Xhosa (isiXhosa)</option>
+                    <option value="af">Afrikaans</option>
+                    <option value="nso">Sepedi</option>
+                </select>
+            </div>
+            <div class="language-selector">
+                <label for="target-language">🤝 Patient's Language:</label>
+                <select id="target-language">
+                    <option value="en">English</option>
+                    <option value="zu" selected>Zulu (isiZulu)</option>
+                    <option value="xh">Xhosa (isiXhosa)</option>
+                    <option value="af">Afrikaans</option>
+                    <option value="nso">Sepedi</option>
+                </select>
+            </div>
         </div>
         
         <!-- Category Filter -->
@@ -355,11 +405,21 @@
         // State
         let allPhrases = [];
         let allCategories = [];
-        let selectedLanguage = 'en';
+        let sourceLanguage = 'en';
+        let targetLanguage = 'zu';
         let selectedCategory = null;
         
         // Category name mapping
         const categoryNames = {};
+        
+        // Language name mapping
+        const languageNames = {
+            'en': 'English',
+            'zu': 'Zulu',
+            'xh': 'Xhosa',
+            'af': 'Afrikaans',
+            'nso': 'Sepedi'
+        };
         
         // Initialize app
         async function init() {
@@ -370,8 +430,13 @@
             updateStats();
             
             // Event listeners
-            document.getElementById('language-select').addEventListener('change', (e) => {
-                selectedLanguage = e.target.value;
+            document.getElementById('source-language').addEventListener('change', (e) => {
+                sourceLanguage = e.target.value;
+                renderPhrases();
+            });
+            
+            document.getElementById('target-language').addEventListener('change', (e) => {
+                targetLanguage = e.target.value;
                 renderPhrases();
             });
         }
@@ -469,7 +534,8 @@
             }
             
             container.innerHTML = filteredPhrases.map(phrase => {
-                const translation = phrase.translations[selectedLanguage];
+                const sourceTranslation = phrase.translations[sourceLanguage];
+                const targetTranslation = phrase.translations[targetLanguage];
                 const categoryBadges = phrase.categories.map(catId => {
                     const cat = categoryNames[catId];
                     return `
@@ -485,11 +551,22 @@
                         <div class="phrase-header">
                             <div class="phrase-categories">${categoryBadges}</div>
                         </div>
-                        <div class="phrase-text">${translation.text}</div>
-                        <div class="phrase-phonetic">${translation.phonetic}</div>
-                        <button class="play-button" onclick="playAudio('${phrase.id}', '${selectedLanguage}')">
+                        
+                        <div class="language-section">
+                            <div class="language-label">👨‍⚕️ Your Language (${languageNames[sourceLanguage]})</div>
+                            <div class="phrase-text">${sourceTranslation.text}</div>
+                            <div class="phrase-phonetic">${sourceTranslation.phonetic}</div>
+                        </div>
+                        
+                        <div class="language-section target">
+                            <div class="language-label">🤝 Patient's Language (${languageNames[targetLanguage]})</div>
+                            <div class="phrase-text">${targetTranslation.text}</div>
+                            <div class="phrase-phonetic">${targetTranslation.phonetic}</div>
+                        </div>
+                        
+                        <button class="play-button" onclick="playAudio('${phrase.id}', '${targetLanguage}')">
                             <span>▶️</span>
-                            <span>Play Audio</span>
+                            <span>Play Audio (${languageNames[targetLanguage]})</span>
                         </button>
                     </div>
                 `;

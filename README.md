@@ -16,23 +16,34 @@ South Africa's linguistic diversity presents communication challenges for health
 
 ## Core Features
 
-1. **Multilingual Medical Phrases**
+1. **Bilingual Display** ⭐ **NEW**
+   - Side-by-side translation display
+   - Healthcare worker selects "Your Language" (what you understand)
+   - Healthcare worker selects "Patient's Language" (what patient speaks)
+   - Both languages shown together for easy reference
+   - Essential for effective medical communication
+
+2. **Multilingual Medical Phrases**
    - Common healthcare phrases in multiple South African languages
    - Clear text display for each phrase
+   - Organized by medical categories
 
-2. **Pronunciation Support**
+3. **Pronunciation Support**
    - Phonetic/pronunciation guides for correct pronunciation
+   - Shown for both source and target languages
    - Helps healthcare workers learn proper pronunciation
 
-3. **Audio Playback**
+4. **Audio Playback**
    - Text-to-speech audio for each phrase
+   - Audio plays in patient's language
    - Allows healthcare workers to hear native pronunciation
    - Play button for instant audio playback
 
-4. **Mobile-Optimized Interface**
+5. **Mobile-Optimized Interface**
    - Designed for use on mobile devices
    - Quick access in healthcare settings
    - Touch-friendly interface
+   - Responsive design adapts to screen size
 
 ## Language Support
 

@@ -19,12 +19,14 @@ def test_app_route():
             
             html = response.data.decode('utf-8')
             
-            # Check for key UI elements
+            # Check for key UI elements (updated for bilingual)
             required_elements = [
                 'SA Health App',
-                'Select Language',
+                'Your Language',
+                'Patient\'s Language',
                 'Filter by Category',
-                'language-select',
+                'source-language',
+                'target-language',
                 'category-chips',
                 'phrases-container'
             ]
@@ -34,7 +36,7 @@ def test_app_route():
                     print(f"[FAIL] /app missing element: {element}")
                     return False
             
-            print("[PASS] /app route loads with all UI elements")
+            print("[PASS] /app route loads with all UI elements (bilingual)")
             return True
     except Exception as e:
         print(f"[FAIL] /app route test error: {e}")
@@ -72,12 +74,21 @@ def test_ui_components():
             response = client.get('/app')
             html = response.data.decode('utf-8')
             
-            # Language selector
-            if '<select id="language-select">' not in html:
-                print("[FAIL] Language selector missing")
+            # Bilingual language selectors
+            if '<select id="source-language">' not in html:
+                print("[FAIL] Source language selector missing")
                 return False
             
-            # Check all 5 languages
+            if '<select id="target-language">' not in html:
+                print("[FAIL] Target language selector missing")
+                return False
+            
+            # Check for language selector labels
+            if "Your Language" not in html or "Patient's Language" not in html:
+                print("[FAIL] Language selector labels missing")
+                return False
+            
+            # Check all 5 languages present in both selectors
             languages = [
                 ('English', 'value="en"'),
                 ('Zulu', 'value="zu"'),
@@ -87,8 +98,9 @@ def test_ui_components():
             ]
             
             for lang_name, lang_value in languages:
-                if lang_value not in html:
-                    print(f"[FAIL] Language {lang_name} missing")
+                # Should appear at least twice (in both selectors)
+                if html.count(lang_value) < 2:
+                    print(f"[FAIL] Language {lang_name} not in both selectors")
                     return False
             
             # Category filter
@@ -101,7 +113,7 @@ def test_ui_components():
                 print("[FAIL] Phrases container missing")
                 return False
             
-            print("[PASS] All UI components present")
+            print("[PASS] All UI components present (including bilingual selectors)")
             return True
     except Exception as e:
         print(f"[FAIL] UI components test error: {e}")
@@ -131,7 +143,12 @@ def test_javascript_functionality():
                     print(f"[FAIL] JavaScript function missing: {func}")
                     return False
             
-            print("[PASS] JavaScript functionality present")
+            # Check for bilingual variables
+            if 'sourceLanguage' not in html or 'targetLanguage' not in html:
+                print("[FAIL] Bilingual language variables missing")
+                return False
+            
+            print("[PASS] JavaScript functionality present (including bilingual support)")
             return True
     except Exception as e:
         print(f"[FAIL] JavaScript test error: {e}")
@@ -270,7 +287,8 @@ def test_phrase_display():
                 'phrase-card',
                 'phrase-text',
                 'phrase-phonetic',
-                'play-button'
+                'play-button',
+                'language-section'  # Bilingual sections
             ]
             
             for element in required_elements:
@@ -278,7 +296,12 @@ def test_phrase_display():
                     print(f"[FAIL] Phrase display element missing: {element}")
                     return False
             
-            print("[PASS] Phrase display structure complete")
+            # Check for language labels in phrases
+            if 'language-label' not in html:
+                print("[FAIL] Language labels missing from phrase cards")
+                return False
+            
+            print("[PASS] Phrase display structure complete (with bilingual support)")
             return True
     except Exception as e:
         print(f"[FAIL] Phrase display test error: {e}")
