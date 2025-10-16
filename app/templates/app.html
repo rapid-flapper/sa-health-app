@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SA Health App - Medical Phrases</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5568d3;
+            --secondary: #764ba2;
+            --success: #48bb78;
+            --danger: #f56565;
+            --warning: #ed8936;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: var(--text-dark);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header .subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .language-selector label {
+            display: block;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .language-selector select {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .language-selector select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        /* Category Filter */
+        .category-filter {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .filter-label {
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: block;
+            font-size: 0.95rem;
+        }
+        
+        .category-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .category-chip {
+            padding: 0.625rem 1rem;
+            border-radius: 20px;
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            color: var(--text-dark);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+        
+        .category-chip:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .category-chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .category-chip .icon {
+            font-size: 1.1rem;
+        }
+        
+        /* Phrases Container */
+        .phrases-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .phrase-card {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: 1.25rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        
+        .phrase-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .phrase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .phrase-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.375rem;
+        }
+        
+        .phrase-category-badge {
+            padding: 0.25rem 0.625rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .phrase-text {
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .phrase-phonetic {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+            padding: 0.625rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+        
+        .phrase-phonetic::before {
+            content: "🗣️ ";
+            margin-right: 0.25rem;
+        }
+        
+        .play-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .play-button:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+        
+        .play-button:active {
+            transform: scale(0.98);
+        }
+        
+        .play-button.playing {
+            background: var(--success);
+        }
+        
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: white;
+        }
+        
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .empty-state-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Stats */
+        .stats {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.75rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .phrase-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🏥 SA Health App</h1>
+            <p class="subtitle">Multilingual Medical Communication Tool</p>
+        </div>
+        
+        <!-- Stats -->
+        <div class="stats" id="stats">
+            Loading...
+        </div>
+        
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <label for="language-select">Select Language:</label>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="zu">Zulu (isiZulu)</option>
+                <option value="xh">Xhosa (isiXhosa)</option>
+                <option value="af">Afrikaans</option>
+                <option value="nso">Sepedi (Sesotho sa Leboa)</option>
+            </select>
+        </div>
+        
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <span class="filter-label">Filter by Category:</span>
+            <div class="category-chips" id="category-chips">
+                <!-- Categories will be loaded here -->
+            </div>
+        </div>
+        
+        <!-- Phrases Container -->
+        <div class="phrases-container" id="phrases-container">
+            <div class="loading">Loading phrases</div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let allPhrases = [];
+        let allCategories = [];
+        let selectedLanguage = 'en';
+        let selectedCategory = null;
+        
+        // Category name mapping
+        const categoryNames = {};
+        
+        // Initialize app
+        async function init() {
+            await loadCategories();
+            await loadPhrases();
+            renderCategoryChips();
+            renderPhrases();
+            updateStats();
+            
+            // Event listeners
+            document.getElementById('language-select').addEventListener('change', (e) => {
+                selectedLanguage = e.target.value;
+                renderPhrases();
+            });
+        }
+        
+        // Load categories
+        async function loadCategories() {
+            try {
+                const response = await fetch('/api/categories');
+                const data = await response.json();
+                allCategories = data.categories;
+                
+                // Build category name mapping
+                allCategories.forEach(cat => {
+                    categoryNames[cat.id] = cat;
+                });
+            } catch (error) {
+                console.error('Error loading categories:', error);
+            }
+        }
+        
+        // Load phrases
+        async function loadPhrases() {
+            try {
+                const response = await fetch('/api/phrases');
+                const data = await response.json();
+                allPhrases = data.phrases;
+            } catch (error) {
+                console.error('Error loading phrases:', error);
+            }
+        }
+        
+        // Render category chips
+        function renderCategoryChips() {
+            const container = document.getElementById('category-chips');
+            
+            // Add "All" chip
+            const allChip = document.createElement('div');
+            allChip.className = 'category-chip active';
+            allChip.innerHTML = '<span class="icon">📋</span><span>All Categories</span>';
+            allChip.onclick = () => selectCategory(null);
+            container.appendChild(allChip);
+            
+            // Add category chips
+            allCategories.forEach(category => {
+                const chip = document.createElement('div');
+                chip.className = 'category-chip';
+                chip.dataset.categoryId = category.id;
+                chip.innerHTML = `<span class="icon">${category.icon}</span><span>${category.name}</span>`;
+                chip.onclick = () => selectCategory(category.id);
+                container.appendChild(chip);
+            });
+        }
+        
+        // Select category
+        function selectCategory(categoryId) {
+            selectedCategory = categoryId;
+            
+            // Update active state
+            document.querySelectorAll('.category-chip').forEach(chip => {
+                chip.classList.remove('active');
+            });
+            
+            if (categoryId === null) {
+                document.querySelector('.category-chip').classList.add('active');
+            } else {
+                document.querySelector(`[data-category-id="${categoryId}"]`).classList.add('active');
+            }
+            
+            renderPhrases();
+        }
+        
+        // Filter phrases
+        function getFilteredPhrases() {
+            if (selectedCategory === null) {
+                return allPhrases;
+            }
+            return allPhrases.filter(phrase => 
+                phrase.categories.includes(selectedCategory)
+            );
+        }
+        
+        // Render phrases
+        function renderPhrases() {
+            const container = document.getElementById('phrases-container');
+            const filteredPhrases = getFilteredPhrases();
+            
+            if (filteredPhrases.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <div class="empty-state-text">No phrases found in this category</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = filteredPhrases.map(phrase => {
+                const translation = phrase.translations[selectedLanguage];
+                const categoryBadges = phrase.categories.map(catId => {
+                    const cat = categoryNames[catId];
+                    return `
+                        <span class="phrase-category-badge">
+                            <span>${cat.icon}</span>
+                            <span>${cat.name}</span>
+                        </span>
+                    `;
+                }).join('');
+                
+                return `
+                    <div class="phrase-card">
+                        <div class="phrase-header">
+                            <div class="phrase-categories">${categoryBadges}</div>
+                        </div>
+                        <div class="phrase-text">${translation.text}</div>
+                        <div class="phrase-phonetic">${translation.phonetic}</div>
+                        <button class="play-button" onclick="playAudio('${phrase.id}', '${selectedLanguage}')">
+                            <span>▶️</span>
+                            <span>Play Audio</span>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Update stats
+        function updateStats() {
+            const filteredCount = getFilteredPhrases().length;
+            const totalCount = allPhrases.length;
+            const categoryCount = allCategories.length;
+            
+            document.getElementById('stats').textContent = 
+                `${filteredCount} phrases • ${categoryCount} categories • 5 languages`;
+        }
+        
+        // Play audio (placeholder for Milestone 5)
+        function playAudio(phraseId, language) {
+            const button = event.target.closest('.play-button');
+            button.classList.add('playing');
+            button.innerHTML = '<span>⏸️</span><span>Playing...</span>';
+            
+            // Placeholder - audio will be implemented in Milestone 5
+            setTimeout(() => {
+                button.classList.remove('playing');
+                button.innerHTML = '<span>▶️</span><span>Play Audio</span>';
+                alert('Audio playback will be implemented in Milestone 5!');
+            }, 500);
+        }
+        
+        // Start app
+        init();
+    </script>
+</body>
+</html>

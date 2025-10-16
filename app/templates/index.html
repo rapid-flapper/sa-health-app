@@ -106,6 +106,26 @@
         .api-link:hover {
             background: #e9ecef;
         }
+        
+        .app-button {
+            display: block;
+            padding: 20px;
+            margin: 20px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .app-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -138,6 +158,10 @@
         <div class="status">
             ✅ Flask Backend Running Successfully!
         </div>
+        
+        <a href="/app" class="app-button">
+            🚀 Launch Interactive App
+        </a>
         
         <div class="api-links">
             <h3 style="margin-bottom: 15px; color: #333;">API Endpoints:</h3>

@@ -47,6 +47,11 @@ def home():
                          categories=data.get('categories', []),
                          total_phrases=len(data.get('phrases', [])))
 
+@app.route('/app')
+def app_interface():
+    """Interactive app interface"""
+    return render_template('app.html')
+
 @app.route('/api/categories')
 def get_categories():
     """API endpoint to get all categories"""

@@ -146,13 +146,13 @@ Expand to include all 11 official South African languages:
   - [x] Implement API endpoint for all categories
   - [x] Test backend with sample data
 
-- [ ] **Milestone 4: Frontend UI**
-  - [ ] Create mobile-first responsive layout
-  - [ ] Implement category filter/selector
-  - [ ] Display phrases with translations
-  - [ ] Add phonetic pronunciation display
-  - [ ] Style with modern, clean design
-  - [ ] Test on mobile viewport
+- [x] **Milestone 4: Frontend UI** ✅
+  - [x] Create mobile-first responsive layout
+  - [x] Implement category filter/selector
+  - [x] Display phrases with translations
+  - [x] Add phonetic pronunciation display
+  - [x] Style with modern, clean design
+  - [x] Test on mobile viewport
 
 - [ ] **Milestone 5: Audio Playback**
   - [ ] Install and configure gTTS library
