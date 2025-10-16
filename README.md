@@ -111,6 +111,7 @@ Expand to include all 11 official South African languages:
 - 🔄 Basic keyword search functionality
 - 🔄 Favorites/bookmarks
 - 🔄 Usage tracking (optional)
+- 🔄 **Medical Workflows** (Guided conversation templates for common procedures)
 
 ### Phase 3: Intelligent Features (Future)
 **Goal**: Add AI-powered phrase discovery and advanced intelligence
@@ -128,6 +129,36 @@ Expand to include all 11 official South African languages:
 - Use as assistance tool, not for medical diagnosis
 - Consider local open-source models for offline/privacy
 - Build substantial phrase database first before LLM integration
+
+### Medical Workflows Feature (Phase 2)
+
+**Concept**: Guided conversation templates for common medical procedures
+
+Instead of individual phrases, provide step-by-step conversation flows that represent complete medical interactions.
+
+**Example Workflows**:
+- **Vital Signs Check**: Temperature, blood pressure, pulse measurement sequence
+- **Taking Patient History**: Structured questions about symptoms, duration, severity
+- **Medication Instructions**: How to take medicine, dosage, timing, warnings
+- **Physical Examination**: "I need to examine...", "Please breathe deeply", "Does this hurt?"
+- **COVID/TB Screening**: Standard screening questions and symptom checklist
+- **Prenatal Checkup**: Standard prenatal questions and follow-up
+
+**How It Works**:
+1. Healthcare worker selects a procedure/workflow from menu
+2. App displays step-by-step conversation in both languages
+3. Each step shows: Your Language + Patient's Language + Audio
+4. Worker progresses through conversation naturally
+5. Optional branching based on common responses
+
+**Benefits**:
+- ✅ Structured guidance for thorough examinations
+- ✅ Ensures all important questions are asked
+- ✅ Training tool for new healthcare workers
+- ✅ Time-saving (no searching for individual phrases)
+- ✅ Consistent, professional medical conversations
+
+**Implementation**: After Phase 1 MVP is complete and phrase library is expanded
 
 ## Development Progress
 
