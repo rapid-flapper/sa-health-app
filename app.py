@@ -199,4 +199,7 @@ def internal_error(error):
 
 if __name__ == '__main__':
     # Run the app
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Use debug=False for production, debug=True for local development
+    import os
+    debug_mode = os.environ.get('FLASK_ENV') == 'development'
+    app.run(debug=debug_mode, host='0.0.0.0', port=5000)
