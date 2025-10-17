@@ -17,8 +17,9 @@ app = Flask(__name__,
 # Configure app
 app.config['JSON_SORT_KEYS'] = False
 
-# Path to data file
-DATA_FILE = os.path.join('data', 'phrases.json')
+# Path to data file (absolute path for deployment compatibility)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_FILE = os.path.join(BASE_DIR, 'data', 'phrases.json')
 
 def load_phrases_data():
     """Load phrases data from JSON file"""
